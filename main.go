@@ -36,7 +36,7 @@ func main() {
 
 	for scanner.Scan() {
 		line := cleanLine(scanner.Text())
-		if line == "" || line[0] == '#' {
+		if line == "" {
 			continue
 		}
 		dbDir = line
@@ -45,7 +45,7 @@ func main() {
 
 	for scanner.Scan() {
 		line := cleanLine(scanner.Text())
-		if line == "" || line[0] == '#' {
+		if line == "" {
 			continue
 		}
 		dbName = line
