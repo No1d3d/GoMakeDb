@@ -1,0 +1,59 @@
+#!GoMakeDB
+
+#First line of this file should always be #!GoMakeDB
+#File name can be anything, as long as the first line is exactly #!GoMakeDB , it will work
+#All the lines starting with '#' symbol after the first line, or empty lines will be ignored
+
+
+#relative path should look like this: ./directory_to_create
+#db_path: ./database
+#name for the database should be in the format: name.db
+#db_name: example.db
+
+#this symbol sequence is used to define the start of a new TABLE creation sequence 
+#---
+#first you set a table_name
+#table_name should not include any spaces or prohibited table naming symbols 
+#table_name: People
+
+#after it you set each column_name and column_type in one string!
+#column_name should not include any spaces or prohibited column naming symbols
+#column_name: id
+#column_type should include only column type and descriptors
+#column_type: int NOT NULL
+
+#column_name: LastName
+#column_type: varchar(255) NOT NULL
+
+#column_name: FirstName
+#column_type: varchar(255)
+
+#column_name: Age 
+#column_type: int
+
+#if you want to create a new table to use, you simply put another "---" on an new string
+
+
+#Here is a complete example of a working file
+
+
+./database
+example.db
+---
+person
+
+id int NOT NULL
+lastName varchar(255) NOT NULL
+firstName varchar(255)
+age int
+
+---
+socials
+
+id int NOT NULL
+person_id int NOT NULL
+contact_info varchar(255) NOT NULL
+status int NOT NULL CHECK (status IN (0, 1))
+
+#This example will create a new database ./database/example.db
+#This DB will have 2 Tables - person and socials
